@@ -1,6 +1,6 @@
 {
-    "feedparse-extended": {
-        "feedparse-extended": "feedparse-extended",
+    "custom-feedparser": {
+        "custom-feedparser": "custom-feedparser",
         "label": {
             "feedurl": "Feed url"
         },
