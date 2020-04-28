@@ -1,10 +1,9 @@
-node-red-contrib-feedparser-extended
-========================
+node-red-contrib-custom-feedparser
+==================================
 
-A modified version of [node-red-node-feedparser2](https://github.com/RayPS/node-red-contrib-feedparser-2) 
+A modified version of [node-red-node-feedparser-extended](https://github.com/arossmann/node-red-contrib-feedparser-extended) 
 
-Extended the input for injection, not only for timing, but also receiving the url as payload from previous step. 
-This is good for debugging the flow or a flexible interval.
+Accepts 2 inputs <i>interval</i> : for refresh interval in minutes and <i>feed</i> : for feed's url
 
 ![](screenshot.png)
 
@@ -14,4 +13,4 @@ Install
 
 Run the following command in your Node-RED user directory - typically `~/.node-red`
 
-        npm install node-red-contrib-feedparser-extended
+        npm install node-red-contrib-custom-feedparser
