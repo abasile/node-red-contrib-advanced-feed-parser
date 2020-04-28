@@ -12,7 +12,7 @@ module.exports = function(RED) {
         this.seen = {};
         var parsedUrl = url.parse(this.url);
         if (!(parsedUrl.host || (parsedUrl.hostname && parsedUrl.port)) && !parsedUrl.isUnix) {
-            this.error(RED._("feedparse-extended.errors.invalidurl"));
+            this.error(RED._("custom-feedparser.errors.invalidurl"));
         }
         else {
             var getFeed = function(msg) {
@@ -32,7 +32,7 @@ module.exports = function(RED) {
                 req.on('error', function(err) { node.error(err); });
 
                 req.on('response', function(res) {
-                    if (res.statusCode != 200) { node.warn(RED._("feedparse-extended.errors.badstatuscode")+" "+res.statusCode); }
+                    if (res.statusCode != 200) { node.warn(RED._("custom-feedparser.errors.badstatuscode")+" "+res.statusCode); }
                     else { res.pipe(feedparser); }
                 });
 
@@ -63,5 +63,5 @@ module.exports = function(RED) {
         });
     }
 
-    RED.nodes.registerType("feedparse-extended",FeedParseNode);
+    RED.nodes.registerType("custom-feedparser",FeedParseNode);
 }
