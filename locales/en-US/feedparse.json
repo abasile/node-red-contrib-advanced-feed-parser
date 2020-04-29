@@ -1,6 +1,6 @@
 {
-    "custom-feedparser": {
-        "custom-feedparser": "custom-feedparser",
+    "multifeed-parser": {
+        "multifeed-parser": "multifeed-parser",
         "label": {
             "feedurls": "Feed urls",
             "refresh": "Refresh",

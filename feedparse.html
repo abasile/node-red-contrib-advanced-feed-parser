@@ -1,12 +1,12 @@
 
-<script type="text/x-red" data-template-name="custom-feedparser">
+<script type="text/x-red" data-template-name="multifeed-parser">
     <div class="form-row">
-        <label for="node-input-urls"><i class="fa fa-globe"></i> <span data-i18n="custom-feedparser.label.feedurls"></span></label>
+        <label for="node-input-urls"><i class="fa fa-globe"></i> <span data-i18n="multifeed-parser.label.feedurls"></span></label>
         <input type="text" id="node-input-urls">
     </div>
     <div class="form-row">
-        <label for="node-input-interval"><i class="fa fa-globe"></i> <span data-i18n="custom-feedparser.label.refresh"></span></label>
-        <input type="text" id="node-input-interval" style="width:60px"><span data-i18n="custom-feedparser.label.minutes"></span>
+        <label for="node-input-interval"><i class="fa fa-globe"></i> <span data-i18n="multifeed-parser.label.refresh"></span></label>
+        <input type="text" id="node-input-interval" style="width:60px"><span data-i18n="multifeed-parser.label.minutes"></span>
     </div>
     <div class="form-row">
         <label for="node-input-name"><i class="fa fa-tag"></i> <span data-i18n="node-red:common.label.name"></span></label>
@@ -14,7 +14,7 @@
     </div>
 </script>
 
-<script type="text/x-red" data-help-name="custom-feedparser">
+<script type="text/x-red" data-help-name="multifeed-parser">
     <p>Monitors an RSS/atom feed for new entries.</p>
     <p> Input <code>msg.interval</code> is for refresh interval. The refresh interval cannot be greater than 35790 minutes (approx 24.8 days).</p>
     <p>Input <code>msg.feed</code> is the link to rss feed.</p>
@@ -24,7 +24,7 @@
 </script>
 
 <script type="text/javascript">
-    RED.nodes.registerType('custom-feedparser', {
+    RED.nodes.registerType('multifeed-parser', {
         category: 'advanced-input',
         color: "#C0DEED",
         defaults: {
@@ -40,10 +40,10 @@
         outputs: 1,
         icon: "feed.png",
         paletteLabel: function () {
-            return this._("custom-feedparser.custom-feedparser");
+            return this._("multifeed-parser.multifeed-parser");
         },
         label: function () {
-            return this.name || this.url || this._("custom-feedparser.custom-feedparser");
+            return this.name || this.url || this._("multifeed-parser.multifeed-parser");
         },
         labelStyle: function () {
             return this.name ? "node_label_italic" : "";
