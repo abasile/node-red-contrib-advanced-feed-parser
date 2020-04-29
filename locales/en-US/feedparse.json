@@ -2,11 +2,14 @@
     "custom-feedparser": {
         "custom-feedparser": "custom-feedparser",
         "label": {
-            "feedurl": "Feed url"
+            "feedurls": "Feed urls",
+            "refresh": "Refresh",
+            "minutes": "minutes"
         },
         "errors": {
             "badstatuscode": "error - Bad status code",
-            "invalidurl": "Invalid url"
+            "invalidurl": "Invalid url",
+            "invalidinterval": "Repeat interval too large"
         }
     }
 }
