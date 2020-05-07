@@ -7,7 +7,7 @@ module.exports = function (RED) {
 
     function FeedParseNode(n) {
         RED.nodes.createNode(this, n);
-        this.urls = n.urls;
+        this.urls = n.urls||"";
         if (n.interval > 35790) {
             this.warn(RED._("multifeed-parser.errors.invalidinterval"))
         }
@@ -16,11 +16,13 @@ module.exports = function (RED) {
         this.interval_id = null;
         this.seen = {};
         var getFeed = function () {
+            node.log("Getfeed fired");
             var feed_urls = node.urls.split(",");
             feed_urls.forEach(function (feed_url, index) {
+                node.log("feed url is::"+feed_url)
                 var parsedUrl = url.parse(feed_url);
                 if (!(parsedUrl.host || (parsedUrl.hostname && parsedUrl.port)) && !parsedUrl.isUnix) {
-                    this.error(RED._("multifeed-parser.errors.invalidurl" + feed_url));
+                    node.error(RED._("multifeed-parser.errors.invalidurl" + feed_url));
                 } else {
                     var req = request(feed_url, {timeout: 10000, pool: false});
                     //req.setMaxListeners(50);
@@ -72,6 +74,21 @@ module.exports = function (RED) {
             getFeed();
         }, node.interval);
         getFeed();
+        this.on("input",function(msg){
+            node.log("Got a new input:"+msg);
+            if(null !== msg && null !== msg.feedUrls){
+                this.urls=msg.feedUrls;
+                getFeed();
+            }
+            if (null !== this.interval_id){
+                clearInterval(this.interval_id);
+                this.interval_id=setInterval(function () {
+                    getFeed();
+                }, this.interval);
+            }
+
+
+        });
     }
 
     RED.nodes.registerType("multifeed-parser", FeedParseNode);

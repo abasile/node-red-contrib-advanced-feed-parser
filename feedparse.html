@@ -17,12 +17,17 @@
 <script type="text/x-red" data-help-name="multifeed-parser">
     <p>Monitors multiple RSS/atom feeds for new entries.</p>
 
+    <p><code>Inputs</code></p>
+    <p> If <code>msg.feedUrls</code> is present in input, it will overwrite the Configured "Feed Urls" property , force a refresh of feeds and reset the refreshTimer.</p>
+
+    <p><code>Outputs</code></p>
     <p>The <code>msg.topic</code> contains the original article link. The <code>msg.payload</code>
     contains the description, and <code>msg.article</code> contains the complete article object,
     which has properties such as <code>.title</code>, <code>.summary</code>, <code>.date</code> and so on.</p>
 
     <p>The Refresh interval cannot be greater than 35790 minutes (approx 24.8 days).</p>
     <p>Feed urls need to be comma separated. </p>
+
     <p>Impact on performance or limit on how many feeds will this node support is not tested</p>
 
 </script>
@@ -38,9 +43,9 @@
                     return (!isNaN(parseInt(v)) && (parseInt(v) <= 35790))
                 }
             },
-            urls: {value: "", required: true}
+            urls: {value: "", required: false}
         },
-        inputs: 0,
+        inputs: 1,
         outputs: 1,
         icon: "feed.png",
         paletteLabel: function () {
