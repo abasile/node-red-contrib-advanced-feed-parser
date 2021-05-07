@@ -8,17 +8,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/anubhav77/node-red-contrib-multifeed-parser"
+    "url": "https://github.com/abasile/node-red-contrib-advanced-feed-parser"
   },
   "license": "Apache-2.0",
-  "keywords": [
-    "node-red",
-    "atom",
-    "rss",
-    "feed",
-    "parse",
-    "multiple"
-  ],
+  "keywords": ["node-red", "atom", "rss", "feed", "parse", "multiple"],
   "node-red": {
     "nodes": {
       "multifeed-parser": "feedparse.js"
