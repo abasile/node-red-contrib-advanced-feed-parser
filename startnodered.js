@@ -13,23 +13,24 @@ var server = http.createServer(app);
 
 // Create the settings object - see default settings.js file for other options
 var settings = {
-  adminAuth: {
-    //node -e "console.log(require('bcryptjs').hashSync(process.argv[1], 8));" your-password-here
-    type: "credentials",
-    users: [
-      {
-        username: "admin",
-        password:
-          "$2a$08$uPWNRxfnOyj30Nu0GKfhUeLwsFHA.gxPToifS6cyLRfvSS20VcGzy",
-        permissions: "*"
-      }
-    ]
-  },
+  // adminAuth: {
+  //   //node -e "console.log(require('bcryptjs').hashSync(process.argv[1], 8));" your-password-here
+  //   type: "credentials",
+  //   users: [
+  //     {
+  //       username: "admin",
+  //       password:
+  //         "$2a$08$uPWNRxfnOyj30Nu0GKfhUeLwsFHA.gxPToifS6cyLRfvSS20VcGzy",
+  //       permissions: "*"
+  //     }
+  //   ]
+  // },
 
   httpNodeCors: {
     origin: "*",
     methods: "GET,PUT,POST,DELETE"
   },
+  userDir: "/sandbox/dot-nodered/",
   nodesDir: "./nodes",
   httpAdminRoot: "/",
   httpNodeRoot: "/my",

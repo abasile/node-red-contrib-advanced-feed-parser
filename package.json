@@ -10,7 +10,8 @@
     "express": "4.17.1",
     "node-red": "1.0.4",
     "node-red-contrib-blockly": "1.1.0",
-    "node-red-dashboard": "2.19.4"
+    "node-red-dashboard": "2.19.4",
+    "node-red-contrib-advanced-feed-parser": "file:/sandbox/advanced-feed-parser"
   },
   "devDependencies": {
     "nodemon": "1.18.4"

@@ -4,7 +4,7 @@
   "description": "A Node-RED node to get RSS Atom feeds. Exended to get multiple feed urls as array",
   "dependencies": {
     "feedparser": "^2.2.9",
-    "request": "^2.83.0"
+    "request": "^2.88.0"
   },
   "repository": {
     "type": "git",
