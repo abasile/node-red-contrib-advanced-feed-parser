@@ -1,6 +1,6 @@
 {
-    "multifeed-parser": {
-        "multifeed-parser": "multifeed-parser",
+    "advanced-feed-parser": {
+        "advanced-feed-parser": "advanced-feed-parser",
         "label": {
             "feedurls": "Feed urls",
             "refresh": "Refresh",

@@ -359,19 +359,19 @@
     }
    }
   },
-  "node-red-contrib-multifeed-parser": {
-   "name": "node-red-contrib-multifeed-parser",
+  "node-red-contrib-advanced-feed-parser": {
+   "name": "node-red-contrib-advanced-feed-parser",
    "version": "0.0.3",
    "local": false,
    "nodes": {
-    "multifeed-parser": {
-     "name": "multifeed-parser",
+    "advanced-feed-parser": {
+     "name": "advanced-feed-parser",
      "types": [
-      "multifeed-parser"
+      "advanced-feed-parser"
      ],
      "enabled": true,
      "local": false,
-     "module": "node-red-contrib-multifeed-parser",
+     "module": "node-red-contrib-advanced-feed-parser",
      "file": "/sandbox/node_modules/node-red-contrib-advanced-feed-parser/feedparse.js"
     }
    }

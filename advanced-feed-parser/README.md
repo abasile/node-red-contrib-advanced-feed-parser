@@ -1,4 +1,4 @@
-node-red-contrib-multifeed-parser
+node-red-contrib-advanced-feed-parser
 ==================================
 
 A modified version of [node-red-node-feedparser-extended](https://github.com/arossmann/node-red-contrib-feedparser-extended) 
@@ -14,4 +14,4 @@ Install
 
 Run the following command in your Node-RED user directory - typically `~/.node-red`
 
-        npm install node-red-contrib-multifeed-parser
+        npm install node-red-contrib-advanced-feed-parser
