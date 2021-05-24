@@ -34,6 +34,7 @@ var settings = {
   nodesDir: "./nodes",
   httpAdminRoot: "/",
   httpNodeRoot: "/my",
+  flowFile: "/sandbox/dot-nodered/flows_sse.json",
   uiPort: 8080,
   functionGlobalContext: {} // enables global context
 };
