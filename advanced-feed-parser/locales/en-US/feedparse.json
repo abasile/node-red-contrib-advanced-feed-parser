@@ -1,15 +1,16 @@
 {
-    "advanced-feed-parser": {
-        "advanced-feed-parser": "advanced-feed-parser",
-        "label": {
-            "feedurls": "Feed urls",
-            "refresh": "Refresh",
-            "minutes": "minutes"
-        },
-        "errors": {
-            "badstatuscode": "error - Bad status code",
-            "invalidurl": "Invalid url",
-            "invalidinterval": "Repeat interval too large"
-        }
+  "advanced-feed-parser": {
+    "advanced-feed-parser": "Feed Parser",
+    "label": {
+      "feedurls": "Feed urls",
+      "refresh": "Refresh",
+      "group": "Group output",
+      "minutes": "minutes"
+    },
+    "errors": {
+      "badstatuscode": "error - Bad status code",
+      "invalidurl": "Invalid url",
+      "invalidinterval": "Repeat interval too large"
     }
+  }
 }

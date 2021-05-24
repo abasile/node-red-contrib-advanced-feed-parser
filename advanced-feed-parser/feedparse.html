@@ -1,61 +1,70 @@
-
 <script type="text/x-red" data-template-name="advanced-feed-parser">
-    <div class="form-row">
-        <label for="node-input-urls"><i class="fa fa-globe"></i> <span data-i18n="advanced-feed-parser.label.feedurls"></span></label>
-        <input type="text" id="node-input-urls">
-    </div>
-    <div class="form-row">
-        <label for="node-input-interval"><i class="fa fa-globe"></i> <span data-i18n="advanced-feed-parser.label.refresh"></span></label>
-        <input type="text" id="node-input-interval" style="width:60px"><span data-i18n="advanced-feed-parser.label.minutes"></span>
-    </div>
-    <div class="form-row">
-        <label for="node-input-name"><i class="fa fa-tag"></i> <span data-i18n="node-red:common.label.name"></span></label>
-        <input type="text" id="node-input-name" data-i18n="[placeholder]node-red:common.label.name">
-    </div>
+  <div class="form-row">
+      <label for="node-input-urls"><i class="fa fa-globe"></i> <span data-i18n="advanced-feed-parser.label.feedurls"></span></label>
+      <input type="text" id="node-input-urls">
+  </div>
+  <div class="form-row">
+      <label for="node-input-interval"><i class="fa fa-globe"></i> <span data-i18n="advanced-feed-parser.label.refresh"></span></label>
+      <input type="text" id="node-input-interval" style="width:60px"><span data-i18n="advanced-feed-parser.label.minutes"></span>
+  </div>
+  <div class="form-row">
+      <label for="node-input-group"><i class="fa fa-globe"></i> <span data-i18n="advanced-feed-parser.label.group"></span></label>
+      <input type="checkbox" id="node-input-group">
+  </div>
+  <div class="form-row">
+      <label for="node-input-name"><i class="fa fa-tag"></i> <span data-i18n="node-red:common.label.name"></span></label>
+      <input type="text" id="node-input-name" data-i18n="[placeholder]node-red:common.label.name">
+  </div>
 </script>
 
 <script type="text/x-red" data-help-name="advanced-feed-parser">
-    <p>Monitors multiple RSS/atom feeds for new entries.</p>
+  <p>Monitors multiple RSS/atom feeds for new entries.</p>
 
-    <p><code>Inputs</code></p>
-    <p> If <code>msg.feedUrls</code> is present in input, it will overwrite the Configured "Feed Urls" property , force a refresh of feeds and reset the refreshTimer.</p>
+  <p><code>Inputs</code></p>
+  <p> If <code>msg.feedUrls</code> is present in input, it will overwrite the Configured "Feed Urls" property , force a refresh of feeds and reset the refreshTimer.</p>
 
-    <p><code>Outputs</code></p>
-    <p>The <code>msg.topic</code> contains the original article link. The <code>msg.payload</code>
-    contains the description, and <code>msg.article</code> contains the complete article object,
-    which has properties such as <code>.title</code>, <code>.summary</code>, <code>.date</code> and so on.</p>
+  <p><code>Outputs</code></p>
+  <p>The <code>msg.topic</code> contains the original article link. The <code>msg.payload</code>
+  contains the description, and <code>msg.article</code> contains the complete article object,
+  which has properties such as <code>.title</code>, <code>.summary</code>, <code>.date</code> and so on.</p>
 
-    <p>The Refresh interval cannot be greater than 35790 minutes (approx 24.8 days).</p>
-    <p>Feed urls need to be comma separated. </p>
+  <p>The Refresh interval cannot be greater than 35790 minutes (approx 24.8 days).</p>
+  <p>Feed urls need to be comma separated. </p>
 
-    <p>Impact on performance or limit on how many feeds will this node support is not tested</p>
-
+  <p>Impact on performance or limit on how many feeds will this node support is not tested</p>
 </script>
 
 <script type="text/javascript">
-    RED.nodes.registerType('advanced-feed-parser', {
-        category: 'advanced-input',
-        color: "#C0DEED",
-        defaults: {
-            name: {value: ""},
-            interval: {
-                value: 15, required: true, validate: function (v) {
-                    return (!isNaN(parseInt(v)) && (parseInt(v) <= 35790))
-                }
-            },
-            urls: {value: "", required: false}
-        },
-        inputs: 1,
-        outputs: 1,
-        icon: "feed.png",
-        paletteLabel: function () {
-            return this._("advanced-feed-parser.advanced-feed-parser");
-        },
-        label: function () {
-            return this.name || this.url || this._("advanced-feed-parser.advanced-feed-parser");
-        },
-        labelStyle: function () {
-            return this.name ? "node_label_italic" : "";
+  RED.nodes.registerType("advanced-feed-parser", {
+    category: "Advanced Parser",
+    color: "#C0DEED",
+    defaults: {
+      name: { value: "" },
+      interval: {
+        value: 15,
+        required: true,
+        validate: function (v) {
+          return !isNaN(parseInt(v)) && parseInt(v) <= 35790;
         }
-    });
+      },
+      group: { value: false, required: true },
+      urls: { value: "", required: false }
+    },
+    inputs: 1,
+    outputs: 1,
+    icon: "feed.png",
+    paletteLabel: function () {
+      return this._("advanced-feed-parser.advanced-feed-parser");
+    },
+    label: function () {
+      return (
+        this.name ||
+        this.url ||
+        this._("advanced-feed-parser.advanced-feed-parser")
+      );
+    },
+    labelStyle: function () {
+      return this.name ? "node_label_italic" : "";
+    }
+  });
 </script>
